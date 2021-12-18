@@ -1,0 +1,156 @@
+/* 
+--------------------
+    Fonts
+--------------------
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* 
+--------------------
+    Veriable
+--------------------
+*/
+
+:root {
+  /* Primery Color */
+  --primery-clr: #01a1a1;
+
+  /* Font */
+  --ff: "Poppins", sans-serif;
+  --f-clr: #002f2f;
+
+  /* Background Color */
+  --bg-clr: #ffffff;
+  --bg2-clr: #fafaff;
+
+  --black-clr: #222;
+  --max-width: 1170px;
+  --fixed-width: 620px;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --spacing-m: 0.5rem;
+  --spacing-l: 1rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+--------------------
+    Global Style  
+--------------------
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 0.5px solid #80808080; */
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--ff);
+  background: var(--bg2-clr);
+  text-align: center;
+}
+
+h1 {
+  color: var(--black-clr);
+  font-size: 2.5rem;
+  margin: 10vh;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question {
+  background-color: var(--bg-clr);
+  padding: var(--spacing-l);
+  padding-bottom: 0;
+  box-shadow: var(--light-shadow);
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  transition: var(--transition);
+  max-width: var(--fixed-width);
+  margin-top: var(--spacing-l);
+}
+
+.question .title {
+  display: flex;
+  padding-bottom: var(--spacing-m);
+  color: var(--f-clr);
+  justify-content: space-between;
+}
+.question .title button {
+  font-size: 1.5rem;
+  color: var(--primery-clr);
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--primery-clr);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.question .title button:hover {
+  transform: scale(1.1);
+}
+
+.question.show-answer .title button {
+  transform: rotate(180deg);
+}
+.question.show-answer .title button:hover {
+  transform: scale(1.1) rotate(180deg);
+}
+
+.question .answer {
+  border-top: 0.5px solid var(--f-clr);
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: left;
+  color: var(--f-clr);
+  transition: var(--transition);
+  margin-top: var(--spacing);
+
+  height: 0px;
+  padding: 0px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.question.show-answer .answer {
+  height: auto;
+  opacity: 1;
+  padding: var(--spacing-m) 0px;
+  transition: var(--transition);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  padding: 10px;
+}
+
+footer a {
+  padding: 10px;
+  font-size: 0.75rem;
+  color: var(--primery-clr);
+}
